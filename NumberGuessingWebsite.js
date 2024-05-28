@@ -5,7 +5,7 @@ This is a Number Guessing website made by Segni Assaye[ALX Portfolio Project]
 I have used script.js, HTML text file and a CSS file while doing this project.
 */
 
-const secretNumber = Math.floor(Math.random() * 100) + 1;
+const secretNumber = Math.floor(Math.random() * 200) + 1;
 let attempts = 0;
 
 function checkGuess() {

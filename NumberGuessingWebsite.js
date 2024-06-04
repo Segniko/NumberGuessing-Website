@@ -23,46 +23,23 @@ function checkGuess() {
       document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts. Bonus points: ${bonusPoints}`;
       document.getElementById('bonusPoints').textContent = `Bonus Points: ${bonusPoints}`;
       document.getElementById('firework').style.display = "block";
+
+      if (timer > 0) {
+        bonusPoints += 5;
+      } else {
+        bonusPoints = 0;
+      }
+
       setTimeout(() => {
         document.getElementById('firework').style.display = "none";
       }, 3000);
       resetGame();
     } else if (guess < secretNumber) {
       document.getElementById('message').innerHTML = "Try again! Guess higher.";
-      bonusPoints += 5;
     } else {
       document.getElementById('message').innerHTML = "Try again! Guess lower.";
-      bonusPoints += 5;
     }
 
     guessInput.value = '';
   }
 }
-
-// Timer
-function startTimer() {
-  timer = 60;
-  timerInterval = setInterval(() => {
-    timer--;
-    document.getElementById('countdown').textContent = timer;
-    if (timer === 0) {
-      document.getElementById('message').innerHTML = `Time's up! The number was ${secretNumber}.`;
-      clearInterval(timerInterval);
-      document.getElementById('alarm').style.display = "block";
-      setTimeout(() => {
-        document.getElementById('alarm').style.display = "none";
-        resetGame();
-      }, 3000);
-    }
-  }, 1000);
-}
-
-function resetGame() {
-  attempts = 0;
-  bonusPoints = 0;
-  document.getElementById('bonusPoints').textContent = `Bonus Points: ${bonusPoints}`;
-  clearInterval(timerInterval);
-  startTimer();
-}
-
-startTimer();

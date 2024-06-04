@@ -1,13 +1,31 @@
-.bonus {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 16px;
-}
-
-.timer {
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    position: relative;
+    text-align: center; /* Center align the content */
+  }
+  
+  #game {
+    position: relative;
+    margin: 0 auto; /* Center the game in the middle of the page */
+    width: 80%; /* Adjust the width for responsiveness */
+    max-width: 600px;
+  }
+  
+  #bonusPoints {
     position: absolute;
     top: 10px;
     left: 10px;
     font-size: 16px;
-}
+  }
+  
+  #timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+  }  

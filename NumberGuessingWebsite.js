@@ -5,11 +5,17 @@ This is a Number Guessing website made by Segni Assaye[ALX Portfolio Project]
 I have used script.js, HTML text file and a CSS file while doing this project.
 */
 
-const secretNumber = Math.floor(Math.random() * 250) + 1;
+let secretNumber;
+let difficulty = 'easy';
 let attempts = 0;
 let bonusPoints = 0;
 let timer = 60;
 let timerInterval;
+
+function setDifficulty(difficultyLevel) {
+  difficulty = difficultyLevel;
+  resetGame();
+}
 
 function checkGuess() {
   const guessInput = document.getElementById('guessInput');
@@ -41,5 +47,10 @@ function checkGuess() {
     }
 
     guessInput.value = '';
+  }
+
+  function playSound(soundName) {
+    const sound = document.getElementById(soundName + 'Sound');
+    sound.play();
   }
 }

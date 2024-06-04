@@ -3,26 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Number Guessing Game</title>
+  <title>Button Clicker Game</title>
+  <style>
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">Number Guessing Game</h1>
-    <div id="timer">Time: <span id="countdown">60</span> seconds</div>
-    <div id="bonusPoints">Bonus Points: 0</div>
-    <div class="guess-area">
-      <input type="number" id="userGuess" placeholder="Enter your guess">
-      <button id="guessButton">Guess</button>
-    </div>
-    <div class="difficulty-levels">
-      <button id="easyBtn">Easy</button>
-      <button id="mediumBtn">Medium</button>
-      <button id="hardBtn">Hard</button>
-    </div>
-    <div id="result"></div>
-  </div>
+  <h1>Button Clicker Game</h1>
+  <div id="bonus-points">Bonus Points: 0</div>
+  <button class="btn" id="btn1">Button 1</button>
+  <button class="btn" id="btn2">Button 2</button>
+  <button class="btn" id="btn3">Button 3</button>
 
-  <script src="script.js"></script>
+  <script>
+    let bonusPoints = 0;
+    const bonusPointsDisplay = document.getElementById('bonus-points');
+
+    function incrementBonusPoints() {
+      bonusPoints++;
+      bonusPointsDisplay.textContent = 'Bonus Points: ' + bonusPoints;
+    }
+
+    // Add an event listener to each button to increment bonus points when clicked
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        incrementBonusPoints();
+      });
+    });
+  </script>
 </body>
 </html>

@@ -10,16 +10,20 @@ let countdown = document.getElementById('countdown');
 
 // Bonus points update and reset
 let bonusPoints = 0;
+const bonusPointsDisplay = document.getElementById('bonus-points');
 
-function updateBonusPoints() {
-  bonusPoints += 10;
-  document.getElementById('bonusPoints').innerText = Bonus Points: ${bonusPoints};
+function incrementBonusPoints() {
+  bonusPoints++;
+  bonusPointsDisplay.textContent = 'Bonus Points: ' + bonusPoints;
 }
 
-function resetBonusPoints() {
-  bonusPoints = 0;
-  document.getElementById('bonusPoints').innerText = Bonus Points: ${bonusPoints};
-}
+// Add an event listener to each button to increment bonus points when clicked
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    incrementBonusPoints();
+  });
+});
 
 // Difficulty Levels
 let secretNumber;

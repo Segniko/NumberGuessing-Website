@@ -6,10 +6,11 @@
 input, button {
     margin: 15px;
     padding: 5px;
-    border-radius: 5px;
+    font-size: 16px;
 }
 
-body {
-    background-size: cover;
-    background-repeat: no-repeat;
+#timer {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
 }

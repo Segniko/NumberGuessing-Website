@@ -5,6 +5,8 @@ This is a Number Guessing website made by Segni Assaye[ALX Portfolio Project]
 I have used script.js, HTML text file and a CSS file while doing this project.
 */
 
+
+//Random number between 1 & 100
 let secretNumber = Math.floor(Math.random() * 100) + 1;
 let bonusPoints = 0;
 let timeLeft = 60;

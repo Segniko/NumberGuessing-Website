@@ -5,57 +5,34 @@ This is a Number Guessing website made by Segni Assaye[ALX Portfolio Project]
 I have used script.js, HTML text file and a CSS file while doing this project.
 */
 
-// Timer on the top left corner
-let countdown = document.getElementById('countdown');
-
-// Bonus points update and reset
+let secretNumber = Math.floor(Math.random() * 100) + 1;
 let bonusPoints = 0;
-const bonusPointsDisplay = document.getElementById('bonus-points');
+let timeLeft = 60;
 
-function incrementBonusPoints() {
-  bonusPoints++;
-  bonusPointsDisplay.textContent = 'Bonus Points: ' + bonusPoints;
+function checkGuess() {
+    let userGuess = parseInt(document.getElementById("guessInput").value);
+    
+    if (userGuess === secretNumber) {
+        bonusPoints += 5;
+        document.getElementById("bonus").textContent = `Bonus Points: ${bonusPoints}`;
+        // Display firework image
+    } else {
+        // Display fun image
+    }
 }
 
-// Add an event listener to each button to increment bonus points when clicked
-const buttons = document.querySelectorAll('.btn');
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    incrementBonusPoints();
-  });
-});
-
-// Difficulty Levels
-let secretNumber;
-
-document.getElementById('easyBtn').addEventListener('click', function() {
-  secretNumber = Math.floor(Math.random() * 10) + 1;
-  resetBonusPoints();
-});
-
-document.getElementById('mediumBtn').addEventListener('click', function() {
-  secretNumber = Math.floor(Math.random() * 50) + 1;
-  resetBonusPoints();
-});
-
-document.getElementById('hardBtn').addEventListener('click', function() {
-  secretNumber = Math.floor(Math.random() * 100) + 1;
-  resetBonusPoints();
-});
-
-// Sound Effects
-function playCorrectSound() {
-  let audio = new Audio('correct.mp3');
-  audio.play();
+function startTimer() {
+    let timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("time").textContent = timeLeft;
+        
+        if (timeLeft === 0) {
+            clearInterval(timer);
+            bonusPoints = 0;
+            document.getElementById("bonus").textContent = `Bonus Points: ${bonusPoints}`;
+            // Display sad image
+        }
+    }, 1000);
 }
 
-function playIncorrectSound() {
-  let audio = new Audio('incorrect.mp3');
-  audio.play();
-}
-
-function playButtonClickSound() {
-  let audio = new Audio('buttonClick.mp3');
-  audio.play();
-}
-
+startTimer();

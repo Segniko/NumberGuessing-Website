@@ -3,44 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Website</title>
   <link rel="stylesheet" href="styles.css">
-  <title>Number Guessing Game</title>
-
-  <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js"></script>
-  <script>
-    const firebaseConfig = {
-      // Replace with your actual Firebase project configuration variables
-      apiKey: "...",
-      authDomain: "...",
-      projectId: "...",
-      storageBucket: "...",
-      messagingSenderId: "...",
-      appId: "..."
-    };
-
-    firebase.initializeApp(firebaseConfig);
-  </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to the Number Guessing Game!</h1>
-    <p>Are you a new player or an existing one?</p>
-    <div class="user-choice">
-      <button id="new-player">New Player</button>
-      <button id="existing-player">Existing Player</button>
+  <header>
+    <h1>Number Guessing Game</h1>
+    <div class="user-info">
+      <p id="username-display">Not logged in</p>
+      <button id="login-button">Login</button>
+      <button id="logout-button" style="display: none;">Logout</button>
     </div>
-    <div id="user-interface" style="display: none;">
-      <div class="user-details">
-        <h2 id="username-display"></h2>
-        <button id="logout">Logout</button>
-      </div>
-      <div class="bonus-points" id="bonus-points">Bonus Points: 0</div>
-      <div class="timer" id="timer">Timer: 60</div>
-      <div class="game-area">
-        </div>
+    <div class="bonus-points">Bonus: <span id="bonus-points">0</span></div>
+    <div class="timer" id="timer">00:60</div>
+  </header>
+  <main>
+    <div id="game-area" style="display: none;">
+      <img id="game-image" src="images/ocean.jpg" alt="Ocean Background">
+      <input type="number" id="user-guess" placeholder="Enter your guess">
+      <button id="submit-guess">Guess</button>
+      <p id="guess-feedback"></p>
     </div>
-  </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

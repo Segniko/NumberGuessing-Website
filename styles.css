@@ -1,43 +1,19 @@
-.user-interface {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f2f2f2;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Additional styles for buttons, inputs, etc. */
-
-.user-details {
-  background-color: #fff;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Additional styles for user details */
-
-
-.bonus-points {
-  /* Styles for the display of bonus points */
-  position: absolute;
-  top: 20px;
-  right: 20px;
+h1 {
+  text-align: center;
 }
 
-.timer {
-  /* Styles for the display of the timer */
-  position: absolute;
-  top: 20px;
-  left: 20px;
+#timer, #user-guess, #submit-guess {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
 }
 
-.game-area {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+#guess-feedback {
+  font-weight: bold;
 }
-
-/* Additional styles for game area elements */

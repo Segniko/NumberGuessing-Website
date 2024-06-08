@@ -17,4 +17,4 @@ const auth = firebase.auth();
 export function signup(username, password) {
   return auth.createUserWithEmailAndPassword(username, password)
     .then(userCredential => {
-      userCredential.user.updateProfile({ displayName: username }); // Set username as display
+      userCredential.user.

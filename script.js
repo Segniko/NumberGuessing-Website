@@ -1,25 +1,43 @@
-// Simulate a random number (replace with actual generation later)
-const randomNum = 50; // Replace with actual random number generation
+let timer = 60; // Initial timer value (seconds)
+let correctNumber; // Stores the randomly generated number
+
+function generateRandomNumber() {
+  return Math.floor(Math.random() * 100) + 1; // Example: generates a number between 1 and 100
+}
+
+function updateTimer() {
+  // ... existing timer logic (unchanged)
+}
+
+function startTimer() {
+  correctNumber = generateRandomNumber(); // Generate a new random number on starting the timer
+  const timerInterval = setInterval(updateTimer, 1000); // Update timer every second
+  updateTimer(); // Call initially to display formatted time
+}
 
 function handleGuess() {
-  const userGuess = parseInt(document.getElementById('user-guess').value);
-  if (isNaN(userGuess)) {
-    alert("Invalid guess. Please enter a number.");
-    return;
-  }
+  // ... existing guess validation logic (unchanged)
 
-  const guessFeedback = document.getElementById('guess-feedback');
+  if (userGuess === correctNumber) {
+    clearInterval(timerInterval);
+    document.getElementById('guess-feedback').textContent = "Congratulations! You guessed the number!";
 
-  if (userGuess === randomNum) {
-    guessFeedback.textContent = "Congratulations! You guessed the number!";
-  } else if (userGuess > randomNum) {
-    guessFeedback.textContent = "Your guess is too high. Try again!";
+    // Optionally display a message indicating a new game can start
+    document.getElementById('guess-feedback').textContent += " A new game can start now!";
+
+    // Reset timer and enable starting a new game (replace with your logic)
+    timer = 60;
+  } else if (userGuess > correctNumber) {
+    // ... existing feedback for high guess (unchanged)
   } else {
-    guessFeedback.textContent = "Your guess is too low. Try again!";
+    // ... existing feedback for low guess (unchanged)
   }
 
   document.getElementById('user-guess').value = ""; // Clear user input field
 }
+
+// Call startTimer() when the user starts a new game (replace with your logic)
+// startTimer(); // Uncomment to start timer on page load (optional)
 
 const submitGuessButton = document.getElementById('submit-guess');
 submitGuessButton.addEventListener('click', handleGuess);

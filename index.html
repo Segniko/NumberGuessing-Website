@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Number Guessing Game</title>
+
+  <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      // Replace with your actual Firebase project configuration variables from the "Number Guessing Website" project
+      apiKey: "...",
+      authDomain: "...",
+      projectId: "...",
+      storageBucket: "...",
+      messagingSenderId: "...",
+      appId: "..."
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
   <div class="container">
@@ -14,7 +30,17 @@
       <button id="new-player">New Player</button>
       <button id="existing-player">Existing Player</button>
     </div>
+    <div id="user-interface" style="display: none;">
+      <div class="user-details">
+        <h2 id="username-display"></h2>
+        <button id="logout">Logout</button>
+      </div>
+      <div class="bonus-points" id="bonus-points">Bonus Points: 0</div>
+      <div class="timer" id="timer">Timer: 60</div>
+      <div class="game-area">
+        </div>
     </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -16,10 +16,6 @@ function checkGuess() {
     if (guess === secretNumber) {
       document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts. Bonus points: ${bonusPoints}`;
       document.getElementById('bonusPoints').textContent = `Bonus Points: ${bonusPoints}`;
-      document.getElementById('firework').style.display = "block";
-      setTimeout(() => {
-        document.getElementById('firework').style.display = "none";
-      }, 3000);
       resetGame();
     } else if (guess < secretNumber) {
       document.getElementById('message').innerHTML = "Try again! Guess higher.";

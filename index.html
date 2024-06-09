@@ -5,17 +5,9 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <style type="text/css">
     body {
-      background-image: url('Underwater.jpg');
+      background-image: url('background.jpg');
       background-size: cover;
       position: relative;
-    }
-    #alarm {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
     }
   </style>
 </head>
@@ -23,14 +15,12 @@
   <div id="game">
     <h1>Number Guessing Game</h1>
     <p>Guess a number between 1 and 250:</p>
-    <input type="text" id="guessInput">
-    <button onclick="checkGuess()">Submit</button>
+    <input type="text" id="guessInput" placeholder="Enter your guess">
+    <button type="submit" onclick="checkGuess()">Submit</button>
     <p id="message"></p>
     <div id="bonusPoints" class="bonus">Bonus Points: 0</div>
     <div id="timer" class="timer">Time Left: <span id="countdown">60</span> seconds</div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -22,14 +22,12 @@ function updateTimerDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
     seconds = seconds < 10 ? "0" + seconds : seconds;
-    document.getElementById("timer").textContent = `${minutes}:${seconds}`;
-}
-
-timerInterval = setInterval(function() {
-    timeLeft--;
-    updateTimerDisplay();
-    if (timeLeft === 0) {
+    
+    if (timeLeft > 0) {
+        document.getElementById("timer").textContent = `${minutes}:${seconds}`;
+        timeLeft--;
+    } else {
         clearInterval(timerInterval);
         document.getElementById("feedback").textContent = "Time's up! The correct number was " + randomNumber;
     }
-}, 1000);
+}

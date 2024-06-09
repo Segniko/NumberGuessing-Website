@@ -1,19 +1,28 @@
 let timer = 60; // Initial timer value (seconds)
-let correctNumber; // Stores the randomly generated number
-
-function generateRandomNumber() {
-  return Math.floor(Math.random() * 100) + 1; // Example: generates a number between 1 and 100
-}
 
 function updateTimer() {
-  // ... existing timer logic (unchanged)
+  const minutes = Math.floor(timer / 60);
+  const seconds = timer % 60;
+  const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  document.getElementById('timer').textContent = formattedTime;
+
+  // Decrement timer only if it's positive to avoid negative values
+  if (timer > 0) {
+    timer--;
+  }
+
+  // Handle game end on timer reaching 0 (replace with your logic)
+  if (timer === 0) {
+    alert("Time's Up! You ran out of time.");
+    // Reset timer or display game over message (replace with your logic)
+  }
 }
 
 function startTimer() {
-  correctNumber = generateRandomNumber(); // Generate a new random number on starting the timer
   const timerInterval = setInterval(updateTimer, 1000); // Update timer every second
   updateTimer(); // Call initially to display formatted time
 }
+
 
 function handleGuess() {
   // ... existing guess validation logic (unchanged)

@@ -1,27 +1,7 @@
 #game {
   text-align: center;
-  margin-top: 20%;
 }
 
 input, button {
-  margin: 15px;
-  padding: 5px;
-  font-size: 16px;
-  
-}
-
-.bonus {
-  position: relative;
-  top: 0px;
-  right: 0px;
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.timer {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  font-size: 20px;
-  color: #ffffff;
+  margin: 10px;
 }

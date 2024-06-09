@@ -13,7 +13,7 @@ const difficultyLevels = {
   },
 };
 
-let selectedDifficulty = "easy"; // Default difficulty
+let selectedDifficulty = "easy";
 let secretNumber;
 let attempts = 0;
 let timer; // Timer functionality (not implemented here)
@@ -42,11 +42,14 @@ function startGame() {
   secretNumber = Math.floor(Math.random() * (range[1] - range[0] + 1)) + range[0];
   attempts = 0;
   // ... (start timer functionality if implemented)
+  console.log("Game started! Difficulty:", selectedDifficulty); // Debugging check
 }
 
 function checkGuess() {
   const guessInput = document.getElementById('guessInput');
   const guess = parseInt(guessInput.value);
+
+  console.log("checkGuess function called!"); // Debugging check
 
   if (isNaN(guess) || guess < 1 || guess > difficultyLevels[selectedDifficulty].range[1]) { // Check based on difficulty range
     document.getElementById('message').innerHTML = "Please enter a valid number between 1 and " + difficultyLevels[selectedDifficulty].range[1] + ".";
@@ -68,7 +71,3 @@ function checkGuess() {
         document.getElementById('message').innerHTML = "Try again! Guess lower.";
       }
     }
-
-    guessInput.value = '';
-  }
-}

@@ -5,7 +5,7 @@ function checkGuess() {
   const guessInput = document.getElementById('guessInput');
   const guess = parseInt(guessInput.value);
 
-  if (isNaN(guess)  guess < 1  guess > 100) {
+  if (isNaN(guess) || guess < 1 || guess > 100) {
     document.getElementById('message').innerHTML = "Please enter a valid number between 1 and 100.";
   } else {
     attempts++;

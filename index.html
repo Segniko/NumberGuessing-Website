@@ -7,18 +7,10 @@
 <body>
   <div id="game">
     <h1>Number Guessing Game</h1>
-    <p>Select Difficulty:</p>
-    <input type="radio" id="easy" name="difficulty" value="easy" checked>
-    <label for="easy">Easy</label>
-    <input type="radio" id="medium" name="difficulty" value="medium">
-    <label for="medium">Medium</label>
-    <input type="radio" id="hard" name="difficulty" value="hard">
-    <label for="hard">Hard</label>
-    <p>Guess a number (or range):</p>
-    <input type="text" id="guessInput" placeholder="Enter guess or range (e.g., 100-120)">
+    <p>Guess a number between 1 and 100:</p>
+    <input type="text" id="guessInput">
     <button onclick="checkGuess()">Submit Guess</button>
     <p id="message"></p>
-    <p id="highScore">High Score (Easy): No Score Yet</p>
   </div>
 
   <script src="script.js"></script>

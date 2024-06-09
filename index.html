@@ -1,31 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Guessing Game</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+  <div id="game">
+    <h1>Number Guessing Game</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input type="text" id="guessInput">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="message"></p>
+  </div>
 
-    <div class="container">
-        <h1>Number Guessing Game</h1>
-
-        <div class="user-info">
-            <p>Welcome, <span id="username"></span>!</p>
-            <p>Bonus Points: <span id="bonus-points">0</span></p>
-        </div>
-
-        <div class="game-area">
-            <img id="game-image" src="images/ocean.jpg" alt="Game Image">
-            <p>Timer: <span id="timer">60</span></p>
-            <input type="number" id="guess-input" placeholder="Enter your guess (1-100)">
-            <button onclick="checkGuess()">Guess</button>
-            <p id="message"></p>
-        </div>
-
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

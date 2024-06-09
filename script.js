@@ -1,33 +1,62 @@
-let randomNumber = Math.floor(Math.random() * 100) + 1; // Simulated random number
-let timeLeft = 60; // Initial time in seconds
+// Number Guessing Website
+const secretNumber = Math.floor(Math.random() * 250) + 1;
+let attempts = 0;
+let bonusPoints = 0;
+let timer = 60;
 let timerInterval;
 
-function submitGuess() {
-    let guess = parseInt(document.getElementById("guessInput").value);
+function checkGuess() {
+  const guessInput = document.getElementById('guessInput');
+  const guess = parseInt(guessInput.value);
 
-    if (isNaN(guess)) {
-        document.getElementById("feedback").textContent = "Please enter a valid number.";
+  if (isNaN(guess) || guess < 1 || guess > 250) {
+    document.getElementById('message').innerHTML = "Please enter a valid number between 1 and 250.";
+  } else {
+    attempts++;
+    if (guess === secretNumber) {   
+      document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts. Bonus points: ${bonusPoints}`;
+      document.getElementById('bonusPoints').textContent = `Bonus Points: ${bonusPoints}`;
+      document.getElementById('firework').style.display = "block";
+      setTimeout(() => {
+        document.getElementById('firework').style.display = "none";
+      }, 3000);
+      resetGame();
+    } else if (guess < secretNumber) {
+      document.getElementById('message').innerHTML = "Try again! Guess higher.";
+      bonusPoints += 5;
     } else {
-        if (guess === randomNumber) {
-            document.getElementById("feedback").textContent = "Congratulations! You guessed the correct number.";
-        } else if (guess < randomNumber) {
-            document.getElementById("feedback").textContent = "Too low. Try again.";
-        } else {
-            document.getElementById("feedback").textContent = "Too high. Try again.";
-        }
+      document.getElementById('message').innerHTML = "Try again! Guess lower.";
+      bonusPoints += 5;
     }
+
+    guessInput.value = '';
+  }
 }
 
-function updateTimerDisplay() {
-    const minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    
-    if (timeLeft > 0) {
-        document.getElementById("timer").textContent = `${minutes}:${seconds}`;
-        timeLeft--;
-    } else {
-        clearInterval(timerInterval);
-        document.getElementById("feedback").textContent = "Time's up! The correct number was " + randomNumber;
+// Timer
+function startTimer() {
+  timer = 60;
+  timerInterval = setInterval(() => {
+    timer--;
+    document.getElementById('countdown').textContent = timer;
+    if (timer === 0) {
+      document.getElementById('message').innerHTML = `Time's up! The number was ${secretNumber}.`;
+      clearInterval(timerInterval);
+      document.getElementById('alarm').style.display = "block";
+      setTimeout(() => {
+        document.getElementById('alarm').style.display = "none";
+        resetGame();
+      }, 3000);
     }
+  }, 1000);
 }
+
+function resetGame() {
+  attempts = 0;
+  bonusPoints = 0;
+  document.getElementById('bonusPoints').textContent = `Bonus Points: ${bonusPoints}`;
+  clearInterval(timerInterval);
+  startTimer();
+}
+
+startTimer();

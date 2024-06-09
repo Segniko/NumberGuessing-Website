@@ -1,52 +1,35 @@
-let timer = 60; // Initial timer value (seconds)
+let randomNumber = Math.floor(Math.random() * 100) + 1; // Simulated random number
+let timeLeft = 60; // Initial time in seconds
+let timerInterval;
 
-function updateTimer() {
-  const minutes = Math.floor(timer / 60);
-  const seconds = timer % 60;
-  const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-  document.getElementById('timer').textContent = formattedTime;
+function submitGuess() {
+    let guess = parseInt(document.getElementById("guessInput").value);
 
-  // Decrement timer only if it's positive to avoid negative values
-  if (timer > 0) {
-    timer--;
-  }
-
-  // Handle game end on timer reaching 0 (replace with your logic)
-  if (timer === 0) {
-    alert("Time's Up! You ran out of time.");
-    // Reset timer or display game over message (replace with your logic)
-  }
+    if (isNaN(guess)) {
+        document.getElementById("feedback").textContent = "Please enter a valid number.";
+    } else {
+        if (guess === randomNumber) {
+            document.getElementById("feedback").textContent = "Congratulations! You guessed the correct number.";
+        } else if (guess < randomNumber) {
+            document.getElementById("feedback").textContent = "Too low. Try again.";
+        } else {
+            document.getElementById("feedback").textContent = "Too high. Try again.";
+        }
+    }
 }
 
-function startTimer() {
-  const timerInterval = setInterval(updateTimer, 1000); // Update timer every second
-  updateTimer(); // Call initially to display formatted time
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    document.getElementById("timer").textContent = `${minutes}:${seconds}`;
 }
 
-
-function handleGuess() {
-  // ... existing guess validation logic (unchanged)
-
-  if (userGuess === correctNumber) {
-    clearInterval(timerInterval);
-    document.getElementById('guess-feedback').textContent = "Congratulations! You guessed the number!";
-
-    // Optionally display a message indicating a new game can start
-    document.getElementById('guess-feedback').textContent += " A new game can start now!";
-
-    // Reset timer and enable starting a new game (replace with your logic)
-    timer = 60;
-  } else if (userGuess > correctNumber) {
-    // ... existing feedback for high guess (unchanged)
-  } else {
-    // ... existing feedback for low guess (unchanged)
-  }
-
-  document.getElementById('user-guess').value = ""; // Clear user input field
-}
-
-// Call startTimer() when the user starts a new game (replace with your logic)
-// startTimer(); // Uncomment to start timer on page load (optional)
-
-const submitGuessButton = document.getElementById('submit-guess');
-submitGuessButton.addEventListener('click', handleGuess);
+timerInterval = setInterval(function() {
+    timeLeft--;
+    updateTimerDisplay();
+    if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        document.getElementById("feedback").textContent = "Time's up! The correct number was " + randomNumber;
+    }
+}, 1000);

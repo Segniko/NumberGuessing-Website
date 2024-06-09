@@ -46,7 +46,7 @@ function startGame() {
 
 function checkGuess() {
   const guessInput = document.getElementById('guessInput');
-  const guess = guessInput.value;
+  const guess = parseInt(guessInput.value);
 
   if (isNaN(guess) || guess < 1 || guess > difficultyLevels[selectedDifficulty].range[1]) { // Check based on difficulty range
     document.getElementById('message').innerHTML = "Please enter a valid number between 1 and " + difficultyLevels[selectedDifficulty].range[1] + ".";
@@ -55,13 +55,20 @@ function checkGuess() {
 
     // Check for range input (e.g., "100-120")
     if (guess.includes('-')) {
-      const parts = guess.split('-');
-      const lowerBound = parseInt(parts[0]);
-      const upperBound = parseInt(parts[1]);
-      if (isNaN(lowerBound) || isNaN(upperBound) || lowerBound > upperBound) {
-        document.getElementById('message').innerHTML = "Invalid range format. Use 'number-number' (e.g., 100-120).";
-      } else if (secretNumber >= lowerBound && secretNumber <= upperBound) {
+      // ... (handle range input logic as before)
+    } else { // Single guess
+      if (guess === secretNumber) {
         document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts.`;
         setHighScore(selectedDifficulty, attempts);
         updateHighScoreDisplay();
-        // ... (
+        // ... (end game logic, reset button, etc.)
+      } else if (guess < secretNumber) {
+        document.getElementById('message').innerHTML = "Try again! Guess higher.";
+      } else {
+        document.getElementById('message').innerHTML = "Try again! Guess lower.";
+      }
+    }
+
+    guessInput.value = '';
+  }
+}

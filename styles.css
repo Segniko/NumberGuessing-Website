@@ -21,16 +21,7 @@ header {
   color: white; /* Set text color to white for better visibility */
 }
 
-#guessInput {
-  display: block;
-  margin: 0 auto;
-}
-
 button {
   display: block;
   margin: 0 auto;
-}
-
-p {
-  text-align: center;
 }

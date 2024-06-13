@@ -1,5 +1,14 @@
 const secretNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
+let timer = 0;
+let intervalId;
+
+function startTimer() {
+  intervalId = setInterval(() => {
+    timer++;
+    document.getElementById('timer').textContent = `Timer: ${timer.toString().padStart(2, '0')}`;
+  }, 1000);
+}
 
 function checkGuess() {
   const guessInput = document.getElementById('guessInput');
@@ -10,7 +19,8 @@ function checkGuess() {
   } else {
     attempts++;
     if (guess === secretNumber) {
-      document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts.`;
+      clearInterval(intervalId);
+      document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts. Your time was ${timer} seconds.`;
     } else if (guess < secretNumber) {
       document.getElementById('message').innerHTML = "Try again! Guess higher.";
     } else {
@@ -20,3 +30,5 @@ function checkGuess() {
     guessInput.value = '';
   }
 }
+
+startTimer(); // Start timer on page load

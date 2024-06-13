@@ -3,15 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Number Guessing Website</title>
+  <title>Number Guessing Game/title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Number Guessing Game</h1>
-  <p>Guess a number between 1 and 100:</p>
-  <input type="text" id="guessInput">
-  <button onclick="checkGuess()">Submit Guess</button>
-  <p id="message"></p>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 5px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: flex; justify-content: space-between;">
+        <h1>Number Guessing Game</h1>
+        <h1 style="font-size: 2em; color: white;">Guess a number between 1 and 100:</h1>
+        <div id="timer" style="font-size: 1.5em; color: white;">Timer: 00</div>
+      </div>
+      <p id="message" style="font-size: 1.5em; color: white;"></p>
+      <div style="margin-top: 20px;">
+        <input type="text" id="guessInput" style="font-size: 2em; padding: 10px;">
+        <button onclick="checkGuess()" style="font-size: 2em; padding: 10px;">Submit Guess</button>
+      </div>
+      <div id="bonus" style="font-size: 1.5em; color: white; margin-top: 20px;">Bonus: Solve a math question for extra points!</div>
+    </div>
+  </div>
+  <img src="Blue and White Gaming.jpg" alt="Number Guessing Game" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
   <script src="script.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@ body {
   background-image: url("Matrix.jpg");
   background-size: cover; /* Stretch the image to cover the entire viewport */
   background-position: center;
-  color: white;
+  color: yellow;
   padding: 0;
 }
 

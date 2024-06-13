@@ -21,6 +21,11 @@ function checkGuess() {
     if (guess === secretNumber) {
       clearInterval(intervalId);
       document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts. Your time was ${timer} seconds.`;
+      // Reset everything for a new game
+      secretNumber = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      timer = 0;
+      clearInterval(intervalId);
     } else if (guess < secretNumber) {
       document.getElementById('message').innerHTML = "Try again! Guess higher.";
     } else {

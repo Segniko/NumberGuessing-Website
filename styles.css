@@ -15,4 +15,13 @@ header {
   justify-content: space-between;
   align-items: center;
   background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background to the header */
+  background-image: url("Blue and White Gaming.jpg"); /* Add the same background image to the header */
+  background-size: cover; /* Stretch the image to cover the entire header */
+  background-position: center;
+  color: white; /* Set text color to white for better visibility */
+}
+
+button {
+  display: block;
+  margin: 0 auto;
 }

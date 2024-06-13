@@ -1,4 +1,11 @@
-const secretNumber = Math.floor(Math.random() * 100) + 1;
+const MIN_NUMBER = 1;  // Minimum allowed number (inclusive)
+const MAX_NUMBER = 100; // Maximum allowed number (inclusive)
+
+function generateRandomNumber() {
+  return Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1)) + MIN_NUMBER;
+}
+
+let secretNumber = generateRandomNumber();
 let attempts = 0;
 let timer = 0;
 let intervalId;
@@ -14,15 +21,15 @@ function checkGuess() {
   const guessInput = document.getElementById('guessInput');
   const guess = parseInt(guessInput.value);
 
-  if (isNaN(guess) || guess < 1 || guess > 100) {
-    document.getElementById('message').innerHTML = "Please enter a valid number between 1 and 100.";
+  if (isNaN(guess) || guess < MIN_NUMBER || guess > MAX_NUMBER) {
+    document.getElementById('message').innerHTML = `Please enter a valid number between ${MIN_NUMBER} and ${MAX_NUMBER}.`;
   } else {
     attempts++;
     if (guess === secretNumber) {
       clearInterval(intervalId);
       document.getElementById('message').innerHTML = `Congratulations! You guessed the number in ${attempts} attempts. Your time was ${timer} seconds.`;
-      // Reset everything for a new game
-      secretNumber = Math.floor(Math.random() * 100) + 1;
+      // Reset everything for a new game, including generating a new secret number
+      secretNumber = generateRandomNumber();
       attempts = 0;
       timer = 0;
       clearInterval(intervalId);

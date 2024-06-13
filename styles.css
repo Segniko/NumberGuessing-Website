@@ -20,8 +20,3 @@ header {
   background-position: center;
   color: white; /* Set text color to white for better visibility */
 }
-
-button {
-  display: block;
-  margin: 0 auto;
-}

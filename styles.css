@@ -4,6 +4,7 @@ body {
   background-image: url("Matrix.jpg"); /* Set the image as background */
   background-size: cover; /* Stretch the image to cover the viewport */
   background-position: center; /* Center the image horizontally */
+  color: white;
   height: 100vh; /* Set body height to 100% of viewport height */
   padding: 0;
 }

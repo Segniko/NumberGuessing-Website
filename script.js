@@ -1,7 +1,8 @@
-const MIN_NUMBER = 1;  // Minimum allowed number (inclusive)
-const MAX_NUMBER = 100; // Maximum allowed number (inclusive)
+const MIN_NUMBER = 1;  // Minimum allowed number 
+const MAX_NUMBER = 100; // Maximum allowed number 
 
 function generateRandomNumber() {
+  // Generates a random number between MIN_NUMBER and MAX_NUMBER 
   return Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1)) + MIN_NUMBER;
 }
 
@@ -11,6 +12,7 @@ let timer = 0;
 let intervalId;
 
 function startTimer() {
+  // Starts a timer that updates the on-screen timer every second
   intervalId = setInterval(() => {
     timer++;
     document.getElementById('timer').textContent = `Timer: ${timer.toString().padStart(2, '0')}`;

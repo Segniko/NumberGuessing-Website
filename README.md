@@ -19,4 +19,5 @@ A Quick Mental Break: Need a short break from the daily grind? Our number guessi
 
 
 Deployed site: https://segniko.github.io/NumberGuessing-Website/
+
 Linkedin: https://www.linkedin.com/in/segni-assaye-38055a283/

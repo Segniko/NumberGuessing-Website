@@ -1,3 +1,5 @@
+Author: Segni Assaye
+
 Project Name: Number Guessing Website.
 
 Welcome to the Number Guessing Game Website!
@@ -15,3 +17,6 @@ A Timeless Classic: The number guessing game has been a source of amusement for 
 
 A Quick Mental Break: Need a short break from the daily grind? Our number guessing game is the perfect solution. It's a fantastic way to unwind, de-stress, and give your mind a quick yet stimulating exercise. A few rounds of this game can refresh your focus and leave you feeling rejuvenated.
 
+
+Deployed site: https://segniko.github.io/NumberGuessing-Website/
+Linkedin: https://www.linkedin.com/in/segni-assaye-38055a283/

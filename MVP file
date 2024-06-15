@@ -1,0 +1,37 @@
+MVP Updates
+
+This Week's Progress: 6/10
+
+Explanation:  We've made some good progress on the number guessing website this week, but there's still more to do! It's like climbing a mountain - we're definitely moving up, but we're not at the peak yet.
+
+Completed as Planned:
+
+I have figured out how to keep track of the guesses you make (like remembering the steps you take when climbing).
+I have designed the way the computer will pick its secret number (like choosing a hidden spot on the mountain).
+Incomplete:
+
+I still need to build the part that checks your guesses and tells you if you're right or wrong (like figuring out if you're getting closer to the hidden spot).
+We haven't added a way to keep playing new games yet (like reaching the peak and starting a new climb).
+
+
+Most Difficult Technical Challenge: Logic for Guess Checking
+This week, the biggest technical hurdle was figuring out the logic behind checking the player's guesses. It sounds simple: compare the guess to the secret number and give a hint (higher or lower). But there's more to it when I translate that logic into code.
+
+Here's the breakdown:
+
+Data Types: I need to decide how to store the secret number and the player's guess. Numbers can be whole numbers (integers) or decimals (floats) depending on the game's design. I have to choose the right data type to avoid errors.
+Conditional Statements: The core of the guess checking is a series of "if" statements. If the guess is higher than the secret number, the program needs to tell the player to go lower. If the guess is lower, it needs to say go higher. And if the guess is exactly right, it's a win! Writing these statements clearly and handling all the possibilities can get tricky.
+Range Considerations: Should there be limits on how high or low a guess can be? If so, how do I handle guesses that fall outside the allowed range? I need to add checks to avoid nonsensical guesses and provide appropriate feedback.
+Feedback Messages: I want to give the player helpful hints, not just "higher" or "lower." Is the guess way off, or just a little off? This means writing different messages based on how close the guess is to the secret number.
+These are just some of the considerations that go into building the guess checking logic. It requires careful planning, testing different scenarios, and making sure the code is clear and efficient.
+
+Most Difficult Non-Technical Challenge: Staying Motivated Solo
+Working on a project by myself can be tough. This week, the biggest non-technical challenge was staying motivated. When I hit a roadblock, there's no one to bounce ideas off of or share my frustration with. It can be tempting to give up or get discouraged.
+
+Here's how I tackled this challenge:
+
+Setting Small Goals: Breaking down the project into smaller, achievable tasks helped me feel a sense of accomplishment each day. Even small progress keeps me motivated.
+Rewarding Myself: When I finish a task, I celebrate! Maybe it's a short break, watching a funny video, or treating myself to a snack. Rewards keep things fun and make me want to keep going.
+Taking Breaks: It's important to step away from the project sometimes. Going for a walk, doing some exercise, or even just taking a few deep breaths can help clear my head and come back to the problem with fresh eyes.
+Online Resources: The internet is a goldmine of information and support! There are online forums for programmers, tutorials on specific coding problems, and even communities for solo developers. I can ask questions, get advice, and find inspiration from others facing similar challenges.
+Staying motivated is an ongoing battle, but by using these strategies, I can keep myself focused and moving forward on this solo project.
